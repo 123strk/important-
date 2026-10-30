@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Untuk Kamu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HALAMAN 1: PASSWORD -->
+  <section class="page active" id="p-password">
+    <h1>Sebelum masuk…</h1>
+    <p class="sub">
+      Ada yang ingin kusampaikan. Tebak kalimat rahasianya dulu ya 🤍<br>
+      <span id="hintText"></span>
+    </p>
+    <input type="password" id="pw" placeholder="ketik kalimatnya di sini" autocomplete="off">
+    <div class="error" id="pwErr"></div>
+    <button class="btn" onclick="checkPw()">Masuk</button>
+  </section>
+
+  <!-- HALAMAN 2: PUISI -->
+  <section class="page" id="p-poem">
+    <h2>Beberapa cuitan untukmu</h2>
+    <p class="hint">Ketuk kartu untuk lanjut ke berikutnya</p>
+    <div class="stack" id="stack"></div>
+    <p class="hint" id="counter"></p>
+    <button class="btn" id="toPlaylist" onclick="go('p-playlist')">Lanjut ➜</button>
+  </section>
+
+  <!-- HALAMAN 3: PLAYLIST -->
+  <section class="page" id="p-playlist">
+    <h2>Lagu-lagu yang ngingetin aku ke kamu</h2>
+    <p class="sub">Pilih lagu, baca artinya buat aku 🎧</p>
+
+    <div class="player">
+      <div id="songList"></div>
+
+      <div class="defbox" id="defBox">
+        <b>Definisi lagu</b>
+        Pilih salah satu lagu dulu ya.
+      </div>
+
+      <div class="controls">
+        <button onclick="prevSong()">⏮</button>
+        <button class="main" id="playBtn" onclick="togglePlay()">▶</button>
+        <button onclick="nextSong()">⏭</button>
+      </div>
+
+      <input type="range" id="seek" value="0" min="0" max="100" step="0.1">
+    </div>
+
+    <button class="btn" onclick="go('p-ask')">Lanjut ➜</button>
+  </section>
+
+  <!-- HALAMAN 4: INTI -->
+  <section class="page" id="p-ask">
+    <h1 class="big">Will you be my girlfriend? 💌</h1>
+
+    <button class="box-toggle" onclick="toggleBox()">📦 Buka kotak kecil dulu</button>
+
+    <div class="box-panel" id="boxPanel">
+      <div class="slide show"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+
+      <div class="nav">
+        <button onclick="slide(-1)">‹</button>
+        <span id="slideNo">1 / 3</span>
+        <button onclick="slide(1)">›</button>
+      </div>
+    </div>
+
+    <div class="answers">
+      <button class="yes" onclick="answer('yes')">Yes 💗</button>
+      <button class="no" onclick="answer('no')">No</button>
+    </div>
+
+    <div class="think">
+      <button class="tbtn" onclick="answer('think')">🤔 Masih perlu berpikir</button>
+      <p class="sub tight">Seberapa kamu suka aku sejauh ini?</p>
+      <div class="percent"><span id="pctVal">50</span>%</div>
+      <input type="range" id="pct" min="0" max="100" value="50"
+             oninput="document.getElementById('pctVal').textContent = this.value">
+    </div>
+
+    <div class="result" id="result">
+      <p id="resultText"></p>
+      <button class="btn" id="sendBtn" onclick="sendTele()">Kirim jawaban 📩</button>
+    </div>
+  </section>
+
+  <div class="hearts" id="hearts"></div>
+
+  <!-- AUDIO -->
+  <audio id="bgm" loop></audio>
+  <audio id="songAudio"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
