@@ -7,7 +7,7 @@ const MY_NAME = "Lanika";
 const TG_BOT_TOKEN = "9091435439:AAGm3eISWbF3vm7jrsQV8xQFCKfZ3m0akxA";
 const TG_CHAT_ID = "7787396735";
 
-const BGM_POEM = "audio/Pamungkas - To The Bone (Official Music Video)(mp3j.cc).mp3"; // backsound halaman puisi
+const BGM_POEM = "audio2/Pamungkas - To The Bone (Official Music Video)(mp3j.cc).mp3"; // backsound halaman puisi
 const BGM_ASK = "audio/Nadin Amizah - Kekal (Official Lyric Video)(mp3j.cc).mp3"; // backsound halaman nembak (beda lagu)
 
 const POEMS = [
